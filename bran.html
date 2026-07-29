@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BranTravelAndTours | Discover the Philippines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-dark: #0f172a; /* Deep Ocean / Dark Slate */
+            --primary-light: #f8fafc; /* Off-white Sand */
+            --accent-coral: #ff5a5f; /* Tropical Sunset / Neon Coral */
+            --accent-teal: #14b8a6; /* Tropical Sea */
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Breathing Hero Animation */
+        @keyframes breathe {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-bg {
+            animation: breathe 8s ease-in-out infinite;
+        }
+
+        /* Fade-up Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 800ms ease-out, transform 800ms ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Package Card Hover Ken Burns Effect */
+        .pkg-img-container {
+            overflow: hidden;
+        }
+
+        .pkg-img {
+            transition: transform 6000ms ease-out;
+        }
+
+        .pkg-card:hover .pkg-img {
+            transform: scale(1.15);
+        }
+
+        .pkg-card {
+            transition: box-shadow 400ms ease, transform 400ms ease;
+        }
+
+        .pkg-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+        }
+
+        /* Navbar scroll effect */
+        nav.scrolled {
+            background-color: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-teal);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-black tracking-tight text-slate-900">
+                Bran<span class="text-teal-500">Travel</span>AndTours
+            </a>
+            <ul class="hidden md:flex space-x-8 text-sm font-medium text-slate-700">
+                <li><a href="#home" class="hover:text-teal-500 transition">Home</a></li>
+                <li><a href="#packages" class="hover:text-teal-500 transition">Packages</a></li>
+                <li><a href="#why-us" class="hover:text-teal-500 transition">Why Us</a></li>
+                <li><a href="#contact" class="hover:text-teal-500 transition">Contact</a></li>
+            </ul>
+            <a href="#packages" class="hidden md:block bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-teal-500 transition duration-300">
+                Book Now
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 hero-bg">
+            <!-- El Nido, Palawan style image -->
+            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=2670&auto=format&fit=crop" alt="Philippines Tropical Paradise" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-slate-900/60"></div>
+        
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <h1 class="text-white text-5xl md:text-7xl font-black uppercase tracking-tight leading-tight mb-6 reveal">
+                Your Philippine <br><span class="text-teal-400">Island Adventure</span> Awaits
+            </h1>
+            <p class="text-slate-200 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto reveal">
+                From the pristine lagoons of Palawan to the majestic Chocolate Hills of Bohol. Handcrafted journeys for the ultimate tropical escape.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
+                <a href="#packages" class="bg-teal-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-teal-400 transition transform hover:scale-105 shadow-lg shadow-teal-500/30">
+                    Explore Packages
+                </a>
+                <a href="#why-us" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition">
+                    Why Travel With Us?
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+            <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <!-- Featured Destinations Bar -->
+    <section class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-slate-400 uppercase tracking-widest text-sm mb-8 reveal">Top Rated Destinations</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="reveal">
+                    <h3 class="text-2xl font-bold text-teal-400">Palawan</h3>
+                    <p class="text-slate-400 text-sm">The Last Frontier</p>
+                </div>
+                <div class="reveal">
+                    <h3 class="text-2xl font-bold text-teal-400">Boracay</h3>
+                    <p class="text-slate-400 text-sm">White Sand Paradise</p>
+                </div>
+                <div class="reveal">
+                    <h3 class="text-2xl font-bold text-teal-400">Cebu & Bohol</h3>
+                    <p class="text-slate-400 text-sm">Nature & Heritage</p>
+                </div>
+                <div class="reveal">
+                    <h3 class="text-2xl font-bold text-teal-400">Siargao</h3>
+                    <p class="text-slate-400 text-sm">Surf & Island Vibes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-teal-500 font-semibold uppercase tracking-widest text-sm reveal">Curated Trips</span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mt-2 mb-4 reveal">All-Inclusive Travel Packages</h2>
+                <p class="text-slate-600 text-lg reveal">
+                    Every package is designed with your comfort and adventure in mind. No hidden fees, just pure exploration. Choose the journey that speaks to you.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Package 1 -->
+                <div class="pkg-card bg-white rounded-2xl overflow-hidden shadow-md flex flex-col reveal">
+                    <div class="pkg-img-container relative h-64">
+                        <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?q=80&w=2574&auto=format&fit=crop" alt="Palawan Lagoon" class="pkg-img w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase">Popular</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Palawan Paradise Escape</h3>
+                        <p class="text-slate-500 text-sm mb-6">3 Days / 2 Nights · El Nido & Puerto Princesa</p>
+                        
+                        <ul class="space-y-3 text-slate-700 mb-8 flex-grow">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Up to 3 Destinations:</strong> Hidden Lagoon, Shimizu Island, Underground River</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Free Full Board Meals:</strong> Local seafood & international cuisine</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Max 4 People:</strong> Intimate group sizing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Inclusions:</strong> Airport transfers, licensed tour guide, all ferry fees</span>
+                            </li>
+                        </ul>
+
+                        <div class="border-t border-slate-100 pt-6 flex items-end justify-between">
+                            <div>
+                                <p class="text-slate-400 text-xs line-through">$450</p>
+                                <p class="text-3xl font-black text-slate-900">$399<span class="text-base font-medium text-slate-400">/pax</span></p>
+                            </div>
+                            <a href="#contact" class="bg-teal-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-600 transition duration-300">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 2 (Featured) -->
+                <div class="pkg-card bg-slate-900 text-white rounded-2xl overflow-hidden shadow-xl flex flex-col transform lg:scale-105 reveal z-10 border-4 border-teal-500">
+                    <div class="pkg-img-container relative h-64">
+                        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2574&auto=format&fit=crop" alt="Boracay Beach" class="pkg-img w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-teal-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase">Best Value</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold mb-2">Boracay Luxury Retreat</h3>
+                        <p class="text-slate-400 text-sm mb-6">4 Days / 3 Nights · Station 1 & Puka Beach</p>
+                        
+                        <ul class="space-y-3 text-slate-300 mb-8 flex-grow">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Up to 3 Destinations:</strong> Island Hopping, Helmet Diving, Sunset Paraw Sailing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Premium Breakfast:</strong> Daily buffet at 5-star beachfront hotel</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Max 6 People:</strong> Perfect for families & friends</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Inclusions:</strong> VIP airport fast track, welcome drinks, 1hr massage</span>
+                            </li>
+                        </ul>
+
+                        <div class="border-t border-slate-700 pt-6 flex items-end justify-between">
+                            <div>
+                                <p class="text-slate-500 text-xs line-through">$650</p>
+                                <p class="text-3xl font-black text-white">$549<span class="text-base font-medium text-slate-400">/pax</span></p>
+                            </div>
+                            <a href="#contact" class="bg-teal-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-slate-900 transition duration-300">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="pkg-card bg-white rounded-2xl overflow-hidden shadow-md flex flex-col reveal">
+                    <div class="pkg-img-container relative h-64">
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=2574&auto=format&fit=crop" alt="Chocolate Hills" class="pkg-img w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-amber-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase">Adventure</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Cebu & Bohol Explorer</h3>
+                        <p class="text-slate-500 text-sm mb-6">5 Days / 4 Nights · South Cebu & Bohol</p>
+                        
+                        <ul class="space-y-3 text-slate-700 mb-8 flex-grow">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Up to 3 Destinations:</strong> Kawasan Falls, Chocolate Hills, Tarsier Sanctuary</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Free Lunch Packs:</strong> Authentic local lechon & boholano cuisine</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Max 8 People:</strong> Group travel optimized</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span><strong>Inclusions:</strong> Ferry transfers, canyoneering gear, travel insurance</span>
+                            </li>
+                        </ul>
+
+                        <div class="border-t border-slate-100 pt-6 flex items-end justify-between">
+                            <div>
+                                <p class="text-slate-400 text-xs line-through">$750</p>
+                                <p class="text-3xl font-black text-slate-900">$689<span class="text-base font-medium text-slate-400">/pax</span></p>
+                            </div>
+                            <a href="#contact" class="bg-teal-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-600 transition duration-300">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=2574&auto=format&fit=crop" alt="Island Hopping Boat" class="rounded-2xl shadow-2xl w-full h-[500px] object-cover">
+                </div>
+                <div>
+                    <span class="text-teal-500 font-semibold uppercase tracking-widest text-sm reveal">The BranTravel Guarantee</span>
+                    <h2 class="text-4xl md:text-5xl font-black text-slate-900 mt-2 mb-8 reveal">Travel With Confidence, <br>We Handle the Rest.</h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start reveal">
+                            <div class="bg-teal-100 p-3 rounded-lg mr-6 flex-shrink-0">
+                                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">No Hidden Costs</h3>
+                                <p class="text-slate-600">What you see is what you pay. Environmental fees, terminal fees, and taxes are all accounted for in our packages upfront.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start reveal">
+                            <div class="bg-teal-100 p-3 rounded-lg mr-6 flex-shrink-0">
+                                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Expert Local Guides</h3>
+                                <p class="text-slate-600">Our guides are born and raised in their respective provinces. They know the secret spots and the rich history behind every landmark.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start reveal">
+                            <div class="bg-teal-100 p-3 rounded-lg mr-6 flex-shrink-0">
+                                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">24/7 Customer Support</h3>
+                                <p class="text-slate-600">Missed a flight? Need a late check-out? Our support team is available around the clock to ensure your trip is seamless.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact Section -->
+    <section id="contact" class="py-24 bg-slate-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2574&auto=format&fit=crop" alt="Beach background" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4 reveal">Ready for Your Next Adventure?</h2>
+                <p class="text-slate-300 text-lg mb-10 reveal">Drop your details below, and our travel concierge will get back to you within 24 hours to finalize your dream Philippine getaway.</p>
+                
+                <form class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl grid md:grid-cols-2 gap-4 reveal">
+                    <div class="md:col-span-1">
+                        <input type="text" placeholder="Full Name" class="w-full bg-slate-800/50 border border-slate-600 text-white placeholder-slate-400 px-4 py-3 rounded-lg focus:outline-none focus:border-teal-400 transition">
+                    </div>
+                    <div class="md:col-span-1">
+                        <input type="email" placeholder="Email Address" class="w-full bg-slate-800/50 border border-slate-600 text-white placeholder-slate-400 px-4 py-3 rounded-lg focus:outline-none focus:border-teal-400 transition">
+                    </div>
+                    <div class="md:col-span-2">
+                        <select class="w-full bg-slate-800/50 border border-slate-600 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-teal-400 transition">
+                            <option value="">Select a Package</option>
+                            <option value="1">Palawan Paradise Escape ($399/pax)</option>
+                            <option value="2">Boracay Luxury Retreat ($549/pax)</option>
+                            <option value="3">Cebu & Bohol Explorer ($689/pax)</option>
+                            <option value="custom">Custom Itinerary</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <textarea placeholder="Special requests or number of pax..." rows="3" class="w-full bg-slate-800/50 border border-slate-600 text-white placeholder-slate-400 px-4 py-3 rounded-lg focus:outline-none focus:border-teal-400 transition"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <button type="button" class="w-full bg-teal-500 text-white font-bold py-4 rounded-lg hover:bg-teal-400 transition duration-300 text-lg">
+                            Send Inquiry
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-black text-white mb-4">Bran<span class="text-teal-500">Travel</span>AndTours</h3>
+                    <p class="text-sm">Licensed by the Philippine Department of Tourism. Creating unforgettable island experiences since 2015.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-teal-400 transition">Home</a></li>
+                        <li><a href="#packages" class="hover:text-teal-400 transition">Packages</a></li>
+                        <li><a href="#why-us" class="hover:text-teal-400 transition">Why Us</a></li>
+                        <li><a href="#contact" class="hover:text-teal-400 transition">Book a Trip</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>📍 5F Corporate Center, Cebu City, PH</li>
+                        <li>📞 +63 32 888 1234</li>
+                        <li>✉️ hello@brantraveltours.ph</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-10 pt-6 text-center text-sm">
+                <p>&copy; 2024 BranTravelAndTours. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar background change on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for fade-up animations
+        const reveals = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        reveals.forEach(reveal => {
+            observer.observe(reveal);
+        });
+
+        // Mobile menu toggle (basic placeholder if needed, though hidden in nav above)
+        // For simplicity, mobile users can just scroll to sections via the hamburger or basic links if expanded.
+    </script>
+</body>
+</html>
